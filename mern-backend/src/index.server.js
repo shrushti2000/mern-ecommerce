@@ -3,7 +3,7 @@ const env=require('dotenv');
 const app=express();
 const bodyParser=require('body-parser');
 const mongoose = require('mongoose');
-
+const cors=require('cors');
 //routes
 const authRoutes=require('./routes/auth')
 const adminRoutes=require('./routes/admin/auth')
@@ -15,7 +15,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO
 .then(()=>{
     console.log('Database connected')
 })
-
+app.use(cors());
 app.use(express.json());
 app.use('/api',authRoutes);
 app.use('/api',adminRoutes);

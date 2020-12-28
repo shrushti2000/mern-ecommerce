@@ -7,6 +7,7 @@ import Signin from './containers/Signin';
 import Signup from './containers/Signup';
 
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import PrivateRoute from './components/HOC/PrivateRoute';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
     
       <Router>
       <Switch>
-        <Route path="/" exact component={Home}/>
+        <PrivateRoute path="/" exact component={Home}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/signin" component={Signin}/>
       </Switch>
